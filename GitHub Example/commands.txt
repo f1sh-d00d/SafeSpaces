@@ -1,0 +1,22 @@
+COMMANDS
+
+//copy a repository from github to your computer
+git clone <<URL>>
+
+//create your own branch - NEVER PUSH TO MAIN
+git checkout -b <<branch name>>
+
+//switch to an existing branch
+git checkout <<branch name >>
+
+//save changes - done in three stages
+
+1. add things to be committed
+git add <<filename>>
+git add .
+
+2. commit changes to github (intermediate save)
+git commit -m"I made this change because..."
+
+3. push (save the changes to the repository)
+git push
