@@ -20,3 +20,6 @@ git commit -m"I made this change because..."
 
 3. push (save the changes to the repository)
 git push
+
+//get changes other made
+git pull
