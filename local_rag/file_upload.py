@@ -80,7 +80,7 @@ def append_to_vault(text):
             vault_file.write(chunk.strip() + "\n")
 
 def clear_vault():
-      file.open(ivault.txt","w").close()
+      open("vault.txt","w").close()
 
 def convert_pdf_to_text():
     file_path = filedialog.askopenfilename(filetypes=[("PDF Files", "*.pdf")])
