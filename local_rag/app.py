@@ -12,6 +12,8 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
+#FIXME - mke the user upload a file
+
 # Accept user input
 if prompt := st.chat_input("Ask something"):
     # Display user message in chat
@@ -26,6 +28,8 @@ if prompt := st.chat_input("Ask something"):
         {"role": m["role"], "content": m["content"]}
         for m in st.session_state.messages
     ]
+
+    #FIXME - process file from user and pass it to model
 
     # Get the model's response from Ollama
     response = chat(model="llama3.1", messages=ollama_messages)
