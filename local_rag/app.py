@@ -1,54 +1,48 @@
 import streamlit as st
-from ollama import chat
+from parsers import parse_file
+from embeddings import generate_embeddings, index_embeddings
+from chat import ollama_chat
 
-st.title("Local Rag")
+st.title("RAG Model with LLaMA 3.1")
 
-#import a file
-st.file_uploader("Please enter a file to augment the model", type=["csv", "pdf", "json", "txt"])
+# Upload a file
+uploaded_file = st.file_uploader("Upload a file (csv, json, pdf, txt)", type=["csv", "pdf", "json", "txt"])
 
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-# Display messages from chat history on app rerun
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
-#FIXME - mke the user upload a file
-
-# Accept user input
-if prompt := st.chat_input("Ask something"):
-    # Display user message in chat
-    with st.chat_message("user"):
-        st.markdown(prompt)
+if uploaded_file:
+    # Parse file content
+    file_content = parse_file(uploaded_file)
+    st.write("File uploaded and content extracted!")
     
-    # Add user message to history
-    st.session_state.messages.append({"role": "user", "content": prompt})
+    # Generate embeddings for the file content
+    file_embeddings = generate_embeddings([file_content])
+    
+    # Index the embeddings in FAISS
+    faiss_index = index_embeddings(file_embeddings)
 
-    # Prepare the message history for the API call
-    ollama_messages = [
-        {"role": m["role"], "content": m["content"]}
-        for m in st.session_state.messages
-    ]
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
 
-    #FIXME - process file from user and pass it to model
+    # Display previous chat history
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
-    # Get the model's response from Ollama
-    response = chat(model="llama3.1", messages=ollama_messages)
+    # Accept user input and respond
+    if user_input := st.chat_input("Ask something about the file"):
+        # Show user's input
+        with st.chat_message("user"):
+            st.markdown(user_input)
 
-    # Debug the response structure (uncomment the next line to display the response)
-    # st.write(response)
+        # Add user input to chat history
+        st.session_state.messages.append({"role": "user", "content": user_input})
 
-    # Safely handle the assistant's response from the "message" key
-    try:
-        assistant_response = response['message']['content']
-    except KeyError:
-        assistant_response = "Sorry, I couldn't process that request."
+        # Get the model's response
+        response = ollama_chat(user_input, faiss_index, file_embeddings, [file_content], "llama3.1", st.session_state.messages)
 
-    # Display assistant's response
-    with st.chat_message("assistant"):
-        st.markdown(assistant_response)
+        # Show the assistant's response
+        with st.chat_message("assistant"):
+            st.markdown(response)
 
-    # Add assistant message to chat history
-    st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+        # Add response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
