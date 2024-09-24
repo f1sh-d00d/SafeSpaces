@@ -57,6 +57,7 @@ import PyPDF2
 import re
 import json
 import csv
+# from langchain.document_loaders import DirectoryLoader 
 
 def append_to_vault(text):
     # Normalize whitespace and clean up text
@@ -78,6 +79,9 @@ def append_to_vault(text):
     with open("vault.txt", "a", encoding="utf-8") as vault_file:
         for chunk in chunks:
             vault_file.write(chunk.strip() + "\n")
+
+def clear_vault():
+      open("vault.txt","w").close()
 
 def convert_pdf_to_text():
     file_path = filedialog.askopenfilename(filetypes=[("PDF Files", "*.pdf")])
@@ -113,23 +117,37 @@ def upload_csvfile():
             text = '\n'.join(','.join(row) for row in csv_reader)
         append_to_vault(text)
         print(f"CSV file content appended to vault.txt")
+        # print(text)
 
 # Create the main window
 root = tk.Tk()
 root.title("Upload PDF, JSON, TXT, or CSV")
+root.geometry("200x300")
+root.config(bg="gray")
 
 # Create buttons for each file type
-pdf_button = tk.Button(root, text="Upload PDF", command=convert_pdf_to_text)
+pdf_button = tk.Button(root, text="Upload PDF", command=convert_pdf_to_text, width=15, height=2, bd=5)
+pdf_button.config(font=("#Ink Free", 10, "bold"))
+pdf_button.config(bg="#ff575f")
 pdf_button.pack(pady=10)
 
-txt_button = tk.Button(root, text="Upload Text File", command=upload_txtfile)
+txt_button = tk.Button(root, text="Upload Text File", command=upload_txtfile, width=15, height=2, bd=5)
+txt_button.config(font=("#Ink Free", 10, "bold"))
+txt_button.config(bg="#57f7ff")
 txt_button.pack(pady=10)
 
-json_button = tk.Button(root, text="Upload JSON File", command=upload_jsonfile)
+json_button = tk.Button(root, text="Upload JSON File", command=upload_jsonfile, width=15, height=2, bd=5)
+json_button.config(font=("#Ink Free", 10, "bold"))
+json_button.config(bg="#fad96e")
 json_button.pack(pady=10)
 
-csv_button = tk.Button(root, text="Upload CSV File", command=upload_csvfile)
+csv_button = tk.Button(root, text="Upload CSV File", command=upload_csvfile, width=15, height=2, bd=5)
+csv_button.config(font=("#Ink Free", 10, "bold"))
+csv_button.config(bg="#6efac7")
 csv_button.pack(pady=10)
+
+clear_button = tk.Button(root, text="Clear Vault File", command=clear_vault)
+clear_button.pack(pady=10)
 
 # Run the main event loop
 root.mainloop()
