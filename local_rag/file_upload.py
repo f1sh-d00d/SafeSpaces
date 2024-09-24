@@ -80,6 +80,9 @@ def append_to_vault(text):
         for chunk in chunks:
             vault_file.write(chunk.strip() + "\n")
 
+def clear_vault():
+      open("vault.txt","w").close()
+
 def convert_pdf_to_text():
     file_path = filedialog.askopenfilename(filetypes=[("PDF Files", "*.pdf")])
     if file_path:
@@ -142,6 +145,9 @@ csv_button = tk.Button(root, text="Upload CSV File", command=upload_csvfile, wid
 csv_button.config(font=("#Ink Free", 10, "bold"))
 csv_button.config(bg="#6efac7")
 csv_button.pack(pady=10)
+
+clear_button = tk.Button(root, text="Clear Vault File", command=clear_vault)
+clear_button.pack(pady=10)
 
 # Run the main event loop
 root.mainloop()
