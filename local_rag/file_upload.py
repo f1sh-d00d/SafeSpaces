@@ -57,6 +57,7 @@ import PyPDF2
 import re
 import json
 import csv
+# from langchain.document_loaders import DirectoryLoader 
 
 def append_to_vault(text):
     # Normalize whitespace and clean up text
@@ -113,6 +114,7 @@ def upload_csvfile():
             text = '\n'.join(','.join(row) for row in csv_reader)
         append_to_vault(text)
         print(f"CSV file content appended to vault.txt")
+        # print(text)
 
 # Create the main window
 root = tk.Tk()
