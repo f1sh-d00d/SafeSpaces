@@ -3,6 +3,9 @@ from ollama import chat
 
 st.title("Local Rag")
 
+#import a file
+st.file_uploader("Please enter a file to augment the model", type=["csv", "pdf", "json", "txt"])
+
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -46,6 +49,6 @@ if prompt := st.chat_input("Ask something"):
     # Display assistant's response
     with st.chat_message("assistant"):
         st.markdown(assistant_response)
-    
+
     # Add assistant message to chat history
     st.session_state.messages.append({"role": "assistant", "content": assistant_response})
