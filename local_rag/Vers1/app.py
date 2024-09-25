@@ -27,7 +27,10 @@ if uploaded_file:
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             if "Context:" in message["content"]:
-                continue
+                content_list = message["content"].split()
+                #print("\nLIST:\n", content_list)
+                i = content_list.index("Context:")
+                st.markdown(" ".join(content_list[:i]))
             else:
                 st.markdown(message["content"])
     

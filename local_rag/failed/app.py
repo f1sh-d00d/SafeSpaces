@@ -1,66 +1,48 @@
-import os
-import tempfile
 import streamlit as st
-from streamlit_chat import message
-from rag import ChatFile
+from parsers import parse_file
+from embeddings import generate_embeddings, index_embeddings
+from chat import ollama_chat
 
-st.set_page_config(page_title="ChatFile")
+st.title("RAG Model with LLaMA 3.1")
 
+# Upload a file
+uploaded_file = st.file_uploader("Upload a file (csv, json, pdf, txt)", type=["csv", "pdf", "json", "txt"])
 
-def display_messages():
-    st.subheader("Chat")
-    for i, (msg, is_user) in enumerate(st.session_state["messages"]):
-        message(msg, is_user=is_user, key=str(i))
-    st.session_state["thinking_spinner"] = st.empty()
+if uploaded_file:
+    # Parse file content
+    file_content = parse_file(uploaded_file)
+    st.write("File uploaded and content extracted!")
+    
+    # Generate embeddings for the file content
+    file_embeddings = generate_embeddings([file_content])
+    
+    # Index the embeddings in FAISS
+    faiss_index = index_embeddings(file_embeddings)
 
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
 
-def process_input():
-    if st.session_state["user_input"] and len(st.session_state["user_input"].strip()) > 0:
-        user_text = st.session_state["user_input"].strip()
-        with st.session_state["thinking_spinner"], st.spinner(f"Thinking"):
-            agent_text = st.session_state["assistant"].ask(user_text)
+    # Display previous chat history
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
-        st.session_state["messages"].append((user_text, True))
-        st.session_state["messages"].append((agent_text, False))
+    # Accept user input and respond
+    if user_input := st.chat_input("Ask something about the file"):
+        # Show user's input
+        with st.chat_message("user"):
+            st.markdown(user_input)
 
+        # Add user input to chat history
+        st.session_state.messages.append({"role": "user", "content": user_input})
 
-def read_and_save_file():
-    st.session_state["assistant"].clear()
-    st.session_state["messages"] = []
-    st.session_state["user_input"] = ""
+        # Get the model's response
+        response = ollama_chat(user_input, faiss_index, file_embeddings, [file_content], "llama3.1", st.session_state.messages)
 
-    for file in st.session_state["file_uploader"]:
-        with tempfile.NamedTemporaryFile(delete=False) as tf:
-            tf.write(file.getbuffer())
-            file_path = tf.name
+        # Show the assistant's response
+        with st.chat_message("assistant"):
+            st.markdown(response)
 
-        with st.session_state["ingestion_spinner"], st.spinner(f"Ingesting {file.name}"):
-            st.session_state["assistant"].ingest(file_path)
-        os.remove(file_path)
-
-
-def page():
-    if len(st.session_state) == 0:
-        st.session_state["messages"] = []
-        st.session_state["assistant"] = ChatFile()
-
-    st.header("ChatFile")
-
-    st.subheader("Upload a document")
-    st.file_uploader(
-        "Upload document",
-        type=["pdf"],
-        key="file_uploader",
-        on_change=read_and_save_file,
-        label_visibility="collapsed",
-        accept_multiple_files=True,
-    )
-
-    st.session_state["ingestion_spinner"] = st.empty()
-
-    display_messages()
-    st.text_input("Message", key="user_input", on_change=process_input)
-
-
-if __name__ == "__main__":
-    page()
+        # Add response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
