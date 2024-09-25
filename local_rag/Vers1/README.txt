@@ -4,7 +4,7 @@ To run the app, do the following:
 
 1. In a terminal window, move into the project folder where you are storing this app
 
-2. Run the command 'pip install requirements.txt'
+2. Run the command 'pip install -r requirements.txt'
 	- You will only need to run this command before you run the website for the first time.
 
 3. Open a seperate terminal window and run the command "Ollama serve"
