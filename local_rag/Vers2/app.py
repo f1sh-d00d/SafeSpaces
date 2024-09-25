@@ -11,11 +11,12 @@ uploaded_file = st.file_uploader("Upload a file (csv, json, pdf, txt)", type=["c
 if uploaded_file:
     # Parse file content
     file_content = parse_file(uploaded_file)
-    st.write("File uploaded and content extracted!")
-    
+    st.write("File uploaded and content extracted!\n", file_content)
+
     # Generate embeddings for the file content
     file_embeddings = generate_embeddings([file_content])
-    
+    st.write("Shape: ", file_embeddings.shape)
+
     # Index the embeddings in FAISS
     faiss_index = index_embeddings(file_embeddings)
 

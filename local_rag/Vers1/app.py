@@ -26,8 +26,14 @@ if uploaded_file:
     # Display previous chat history
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-
+            if "Context:" in message["content"]:
+                content_list = message["content"].split()
+                #print("\nLIST:\n", content_list)
+                i = content_list.index("Context:")
+                st.markdown(" ".join(content_list[:i]))
+            else:
+                st.markdown(message["content"])
+    
     # Accept user input and respond
     if user_input := st.chat_input("Ask something about the file"):
         # Show user's input
@@ -35,7 +41,7 @@ if uploaded_file:
             st.markdown(user_input)
 
         # Add user input to chat history
-        st.session_state.messages.append({"role": "user", "content": user_input})
+        #st.session_state.messages.append({"role": "user", "content": user_input})
 
         # Get the model's response
         response = ollama_chat(user_input, faiss_index, file_embeddings, [file_content], "llama3.1", st.session_state.messages)
@@ -45,4 +51,4 @@ if uploaded_file:
             st.markdown(response)
 
         # Add response to chat history
-        st.session_state.messages.append({"role": "assistant", "content": response})
+        #st.session_state.messages.append({"role": "assistant", "content": response})
