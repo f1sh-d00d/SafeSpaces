@@ -3,7 +3,7 @@ from parsers import parse_file
 from embeddings import generate_embeddings, index_embeddings
 from chat import ollama_chat
 
-st.title("RAG Model with LLaMA 3.1")
+st.title("Brade's Faves v.alpha 1.0.0")
 
 # Upload a file
 uploaded_file = st.file_uploader("Upload a file (csv, json, pdf, txt)", type=["csv", "pdf", "json", "txt"])
