@@ -1,0 +1,140 @@
+# Lecture Notes: Attention is All You Need [2017]
+*Prof's Note: This paper changed EVERYTHING. Pay attention! :)*
+
+---
+
+## Opening Thoughts
+Ok everyone, today we're covering probably THE most important paper in modern NLP. Before this? Everything was RNNs and LSTMs. After this? Everything changed.
+
+Key thing to remember: This paper showed we don't need recurrence or convolutions AT ALL. Wild, right?
+
+## The Big Idea [Important!!]
+* Look, RNNs were slow. Had to process things one at a time. BORING.
+* These folks said: "What if we could look at everything at once?"
+* → Enter ATTENTION. It's like giving the model eyes to see the whole sentence at once!
+
+## Main Components (Draw This!)
+                    [Transformer]
+                    /           \
+                Encoder     Decoder
+                (6 layers)   (6 layers)
+
+*Remember*: Each layer has:
+1. Multi-head attention (we'll get to this!)
+2. Feed-forward neural net
+3. Add & Norm (like guardrails to keep things stable)
+
+## Self-Attention Explained
+*Funny story* - it's actually super simple:
+1. Take a word
+2. Compare it with EVERY other word
+3. Figure out what's important
+4. Update the word's representation
+
+Think of it like gossip - everyone checks in with everyone else to get the full story! 😅
+
+## The Magic Formula [Write This Down!]
+```
+Attention(Q,K,V) = softmax(QK^T/√d_k)V
+```
+* Q = Questions
+* K = Keys to match with
+* V = Values to grab
+* That √d_k? Just keeps numbers from getting crazy big
+
+[Side note: Seriously, this formula will come up in interviews!]
+
+## Multi-Head Attention
+* Instead of one attention... why not 8? 
+* *Like having multiple brain processes*
+* Some heads might focus on grammar
+* Others on subject-verb agreement
+* Others on who-knows-what
+
+Prof's tip: This is why transformers are so powerful - they can learn MANY different types of patterns simultaneously!
+
+## Position Encodings
+!!! IMPORTANT !!!
+* Problem: Our model is TOO parallel
+* It has no idea about word order
+* Solution: Add special codes for position
+* Uses sine/cosine waves (clever math trick!)
+
+[Drawing on board]
+```
+Word embeddings
+     +
+Position codes
+     =
+Final input
+```
+
+## Why It Works So Well
+1. Parallel processing (FAST!)
+2. No information bottleneck
+3. Easy to train
+4. Scales really well
+
+*Funny enough*: The authors probably didn't know this would lead to GPT and BERT!
+
+## Training Details
+* Adam optimizer (nothing fancy)
+* Warmup steps (important!)
+* Dropout everywhere (seriously, everywhere)
+* Label smoothing (helps prevent overconfidence)
+
+Side note: These tricks are still used today! Not just theoretical.
+
+## Real-World Impact
+1. BERT? Based on transformer encoder
+2. GPT? Based on transformer decoder
+3. Modern LLMs? All transformers!
+
+Think about it: This paper basically launched the modern AI boom! 🚀
+
+## Common Exam Questions (Wink Wink)
+1. Why scale dot products? (Prevents saturation!)
+2. Why multi-head instead of wider single-head? (Different patterns!)
+3. How does it handle variable length? (Masking!)
+
+## Implementation Gotchas
+* Watch your mask implementation
+* Initialize carefully
+* Memory can explode with sequence length
+* Batch size matters A LOT
+
+Personal Experience: Trust me, I've seen so many students mess up the masking... 😅
+
+## Final Thoughts
+* Revolutionary paper
+* Relatively simple idea
+* MASSIVE impact
+* Still the foundation of modern NLP
+
+Remember: Sometimes the simplest ideas are the most powerful!
+
+---
+*Next Class: We'll implement this from scratch! Bring your laptops and caffeine!*
+
+## Quick Sketches from Class:
+```
+[Basic Attention Mechanism]
+   words
+     ↓
+   Queries → × ← Keys
+     ↓
+   Weights → × ← Values
+     ↓
+   Output
+
+[Multi-Head Version]
+   Input
+  /  |  \
+Head Head Head
+  \  |  /
+  Concat
+    ↓
+  Output
+```
+
+*Note to self: Make sure to explain the residual connections better next time!*
