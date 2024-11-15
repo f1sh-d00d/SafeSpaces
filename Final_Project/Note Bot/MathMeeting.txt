@@ -1,0 +1,433 @@
+lines so i'll give you the little back and background history on
+and one of the important problems a gave rise to calculus
+back in their fifteen and sixteen hundred
+and then we'll actually look at a problem where that's exactly what we want deals we've got a curve in we want to find a tangent line at a certain point of the curves so
+ah right well as die vienna nobody's nobody seems to have questions when he bought the chat just in case
+do have questions there
+lol right looks like we're good
+allen's huge luke sent a message
+gonna yeah i think that's what we'll do that's a good thing is to go to microsoft support and see if we can see if we can figure out
+how to get the dock him to show bigger so little record better are you guys able to see i see my assignment sheet okay there
+yes
+nine
+well was going to one for a larger problem five and problem sex sell before we get and a problem full of or less talk a little that
+about an important problem
+that folks tried to find a nice solution to
+when calculus was sort of in it's infancy
+this is one of the big problems that gave rise to earth
+so we have that
+grab my straight edge withdraw ourselves a curve
+and
+so predating calculus the idea of the coordinate system
+ah was devised by our friend a card
+and once we had a coordinate system mathematics changed drastically
+used to be thought that geometry an algebra were separate disciplines but with the introduction of the coordinate system we yeah we realized mathematicians realize that ah
+geometry problems can quite often be reef raised in terms of coordinates algebra
+so i'm just gonna drop her like that
+and our one of the important questions that arose was ah your pick up point under the curve here along the x axis let's just call it a and then we go up to the curve
+and then over to the y axis in a course that's the function value at a so that ethel they both their function as called f
+right
+and one of the questions they wanted to figure out for reasons will find out in a minute was how can i find a tangent to the curve at a given point like point day
+now at what is a tangent well tangent our lines come from circles
+you draw a circle if you learn gee that you remember your geometry from from middle school and high school
+you couldn't draw tangents to circles and their points that just brush the circle and hit him only once ah a line that hits a circle twice as call the seek out line so that terminology carried over so mathematicians talking the fifteen and sixteen hundreds
+they were sort of interested
+and these more general curves
+that they were exploring and they wanted to know how can i find
+the equation of a tangent line to a curve at a given point so that became a big a big problem that lots of our folks tried to resolve any got resolved a couple of different ways as some someone not as clean as others so of course the ones are nice and clean
+i have come down to earth through time and the other ones are sort of relegated to the history books by finding that red line was an important quest because it gives you information about this function of important so we will get into that in just a second here
+and we'll get their via a little physics problem a couple of physics problems so
+ah this is called let's just say what this is this is a tangent line
+now and you're talking circles
+a tangent line really does only hit the circle twice or one sorry and a while a second line hits it twice as whether curve it hits the and hit the curb once locally just right here in may i stand out yet that they hit the function other places but were worried about
+the place where just brushes by and touches the curved ones that's why we call it a tangent mine
+night and that nice curves like the one we've drawn here have nice tangent lines at all the points so that's what will get into in now in the next little while
+let's take a look fell as go to the book if you gotta hand a copy handy turn to page fifty and we will
+take a look at i did this yesterday but i'll talk it through it here
+mommy
+go to page fifty and unless look at problem are one point four point five so problem five and second one point four let me read his introduction and this is given information ah the we with that that we get from physics actually goes all the way back to an to go
+galileo our friend galileo with the first one to study the motion of falling objects objects falling under the influence of gravity and as is a slight modification of app
+problem five says if a ball is thrown into the air with the velocity of forty feet per second it's hiding in feed use that it's an hour later is given by this formula right here
+forty times t insect time and second
+minus sixty t squared and ah why is in feet
+so i were gonna want to use a half of tea here so so instead of why in our in our calculations so i also called at f of tea so tears time and
+
+ah professor think actually mean yourself
+oh my gosh i think there was any actually i'm so sorry are now you're fine with assists local an imax
+at at that your bag with your i am why don't i have already that's terrible
+so you muted me that the out a while if i do it muted somebody speak up quickly so that we a movie we a mute each other so now we can hear each other
+i so here's our let me let me read the question here part a says find the average velocity for the time period beginning when t is two seconds and lasting for another and then there's for ad time intervals and that they give us to calculate the average velocity over so
+let's talk about that you guys
+right here
+we have ah i'm a nice little formula that's given him that given in the homework
+ah on the homework assignment page now we're gonna take f of two seconds loss point five so add a formula i gave me bring the formula here we are using formula to here and so we're going to calculate the average velocity over the time and
+or ball t y en tu t one plus age and that formula is you take off of t one plus age minor staff of t one and you divide by age and ages the duration of the time interval
+ah we all are hold t one faxed and will let age get smaller and smaller that is closer to zero
+and as age does you dig it does get closer and closer ah we get a what's called we get closer and closer to what what's called the instantaneous velocity at the fix timed he won so let me put that in context here with our problem
+so our t one value years two seconds
+and are furnished eight value is point five seconds so we're going to go from two seconds to two point five seconds and we're going to calculate the average velocity and dad and were gonna know proceed add to short nap time interval and to and we're well and at see
+what the what the average velocity is doing i'd so here's our here's the formula so we take app of t wine which is to plus the age which is point five minus app of to and we divide by age which is point five are now
+this is gives us the correct units for velocity we have ah a certain number of feet here minus a number of feet here so the top as then feet and the bottom of in fraction of the fracked and is in seconds point five seconds so this horrible expression miss
+as fraction resulted in number that's feet per second which is average velocity
+ah right so let's go ahead calculate this and see what we yet ah i brought my nice calculator today
+which i hope you can see if i turn that on
+can you guys see that display
+i have why one of two point five
+are you guys able to see that display or as a too dark knight by you can see it okay good
+good i'm going to use i like to use these graphing calculators just because they're so a user friendly with the out with what you see on the screen so we'll get to that in a minute i'll show you how to use this if you've got one like it
+so just plugging the numbers them for part one now
+now we go app from to plot point five that's two point five minus app of to all over point five so that's what i have here i have ever two point five myself to all over point five now i need to calculate this number and the easiest way to do that
+is to do this on my calculator not gonna do this all by hand so i went into white walls if you guys have a calculator like this and i put in a formula for the height after acts seconds here so forty yaks minus sixty next squared and so if you
+wanting calculate a value of that function you hit the ad bars button
+and you go over to why bars and you yep function and then it gives you a last and you can select whichever function you want minds why won and then i just go why one or two point five and i close the parentheses in gosh a two point five seconds
+ah best thing is that zero so urge right here on the x axis so i put zero here
+and that at to sack and viking calculate that pretty easily
+i had two seconds it's just forty times ah to which is what's that eighty mine as sixteen times for which is sixty four so eighty minus sixty four bear was sixteen i believe
+and so that's where i got the sixteen from and then i divide by point five so i get zero minus sixteen oliver point five a net negative thirty two feet per second
+so that years the average velocity
+that the rock is now noticed we got a negative result so what is a negative result mean in this case well i also grab this function
+ah and you can see over here in two seconds are the ball has reached its maximum height and it's now starting back down sell the negative number means that were coming down positive is a positive direction is upward and negative direction is down
+lord so a negative velocity of negative thirty two feet per second indicates that the ball is falling back towards the ground at a velocity of thirty two feet per second
+ah right so ah again and this and that represents the slope
+ah the line connecting ah the point here two point five to the point here too and we draw in that line and that a second line it hits the curve twice it's hard to see but the read the parabola is a little above that
+wine
+so that the average velocity over the yard the interval from two to two and a half seconds
+now are going to shorten an interval we're going to go from two to two point one seconds and as see what we yeah so let's do that so again now i'm getting calculate ah let age be point won in i'm going to get atf of two point one minus half of two oh
+or point one and i get ah
+here's the calculation just to show yeah
+out a duet so i go parentheses a and then i wanna go get my function here why one
+me and i will plug in two point one
+and then i will subtract
+why one
+of to
+nine clothes that that's the top of the fraction and then divide by point one and there's my average velocity over that at interval that's one tenth of a second so ira are velocity then becomes and negative twenty five point six feet per se
+so we time down at interval the velocities changing a and theoretically if we tightened down even more will get a more accurate estimate of what the velocity is right at two seconds so bad that that's more interested in his velocity right at two seconds
+now here's the problem to find a tangent liar to find the line you need to points ah by right here if we wanted
+calculate the velocity act two seconds we only have one point so that's that's the issue were running into so word timing or using two points and drawing see can't lines and and we're gonna make those hour intervals shorter and shorter and there and that we should get sick and lines who's that slope get
+closer and closer to the tangent line slope is the hope i write the next part of the problem said okay ah go point or five seconds
+and so you put an ad of two point oh five minus apple to over point or five and now the average velocity and drops from negative twenty five point six feet per second to negative twenty four point eight feet per second and we can go ahead and read
+calculate that so and may go over here yeah and we want oh five sell and me
+insert here and oh five
+delete that minus effort to and then we'll divide by point o five
+so now are velocity is than negative twenty four point eight feet per second one we go over that of five one hundredth of a second out from two seconds
+and then the last part says okay do it one more time but this time i only got one one hundredth of a second and see what the our average velocity as across one one hundredth of a second so we go app have to point out one minus af of to and we divide by
+point a one man will do that again because we can smell was go change things to point a one point a one here
+annie awards like are velocity now
+over the one one hundredth second interval as negative twenty four point sixteen
+so that he is the app
+that is the arm
+velocity the average velocity between two seconds and two point oh one seconds
+i that part a others apart be of this as well
+will put right here
+notice these numbers are dropping huge time ah but the big drops came in the first few now that now the drops her are are are are much smaller so they say estimate be instantaneous velocity when it he eat laws to
+so we want that velocity
+at two seconds
+so if you are yeah saying you guys why would you say these velocities you're approaching as we get closer and closer to two seconds
+negative twenty four yeah negative twenty four a half feet per second is exactly what it looks like we're getting closer and closer to an faq will be able to show that ah in just a little while not today but another day we'll be
+able to calculate what's called the derivative of that function which started with and will be able to evaluate the derivative at two seconds and it's going to be twenty four feet per second so the idea of a tangent line was important because it told you how fast as something was che
+at a specific instant so of course the axe variable was time i originally but this works even when axes something other than time you can find how fast something is changing
+at a given instant so that sort of sounds like time again but a a certain acts value you can determine a rate of change any questions
+on ah this first problem where we've found the now the or instantaneous velocity or at least we'd gassed what it was in we guessed correctly
+the any particular as you guys wanna wanna talk about could you show the part real pretty equations and the y equals on your calculator of sure yeah let's do that less do that and i'll show you how that worked so if you have one of these key i calculators are any graphing calculator ah you just gotta white walls
+and i'll delete it and put it back in so ah if you want to put it and you basically have an axe been here for your variable in ours was get forty and then i pressed the x button
+minus i think it was sixteen
+an axe and then there's a square button right there
+the so now that computer as in memory the why one is equal back to that particular function
+make sure that the right function the idea and then as so that's how you put it in
+and then you can quit out there now if you want actually evaluate the function again you hit there's a button called vars right here on the third row down and for out for of four columns over you yet that and then there's why bars that your functions
+and you hit function that we're working with as a function and then and show you a list from why of why one down to i think white and or something
+and so you can you can choose any of those nanda you hit enter and it brings why one and then you just put in parentheses whatever the emperor value is so if it was one point five you just do one point five press enter and and evaluate so at a second and a half after we throw the
+all in the air it's twenty four feet near
+you know that's that's how that works
+so yeah you've ever got one of these calculators it does make calculations little easier which is what they're supposed to do
+diane to your question yeah perfect thanks okay go any other questions on problem five
+norway okay there
+no right well let's try another one of these and let you guys that that you guys look at it
+see what you come up with here
+the last that
+new that one out of the way and less take a look at the next problem ah which was problems sex like i said they were all into three problems three i'm gonna let you guys do by yourself and then five and six that we did i of did five and i'm going to have you not tell me what you get for
+sex now and sixers both use formula three so this is an our alternative formula for our velocity so the average velocity over a time interval t want t to can also be found by taking app of t to minus app of t want you guys in physics now
+a national in terminal at t to is that terminal time t one is the additional time cj got at t terror app on t terminal minus f of t initial all over terminal minus initial and nana and network t one stays fixed and then we'll laugh at
+t to get closer and closer to t won and as we do will get closer and closer to the in the of the instantaneous velocity at time won
+xiao was take a walk or guy had that if they wanted to write on that other problem
+pardon would that formula have worked for the first problem yes yes all these formulas are interchangeable so yeah yeah honestly when you yeah i left take a lot this is one point was ah for was do problems sex here we're throwing a rock instead of a ball
+and we're on mars instead of on earth so the cars with a gravity is different on mars
+so let me read you the question it's sad as numbers sex iraq is thrown awkward on the planet mars with an initial velocity and ten meters per second
+ah it's height in near his t seconds later is given by this formula so must write it down nonetheless call get call it f m t as well but causal why but was comedy on t
+it'll make it easier or we start putting numbers in formula is it's ten times t
+mine earth
+ah
+one point eight six he's weird
+my right do i fear that majors out there you guys have theme this undoubtedly be addressed
+the kit american equation is yet so yeah the general kinda matic equation for an object falling under that under the influence of gravity and ignoring air resistance is the initial height so you can actually write this
+in general
+so on earth day it's their it's eight zero the initial hide at the object was v zero t
+minus six t and t squared
+so that the general ken kinda manic equation for for an object of falling object on the earth so it's financial high plus initial velocity times t minus this is that half of the acceleration due to gravity ah time to t squared so you're probably
+see that a timer to and this course and you've probably seen it in other courses as well so good i right i'll straighten it out said don't have to treat your neck here is what it's asking others two parts again we this time we have five time interval
+both were going to find average velocity over the given time intervals celeste do one
+and one gives us best in are all
+to look at it is from one sack hands
+to two seconds
+nine so that the animal that means all the numbers greater than or equal to one and less than or equal to two
+i last ride down our formula year are formula is f ah the t to minus f of t won
+yeah that's all divided by
+t one man t two
+sorry t to and his team one other go on the same order as they are in the top
+ah so that's that that the equation i want you to used to calculate this now our gonna hold in this case t one will help will be help fix and then we'll bring out of the terminal at time closer and closer to the initial time so the initial time is one so
+well let's go ahead as would be af of to
+minus f have won
+and then this will all be divided by
+two minus one
+and we'll ride it out wants and then what is calculated so to my as one of course you guys just one this is just gonna be f of to minus f one so i'll get my calculator and let it do the arithmetic here that's what they're for
+and this time i fake i have that one the i have that function as why to
+right so he had my bars button
+this time i go to why to nan are put to an
+mine as why won
+whoops
+i'm sorry ignore that i pressed too many buttons to quit
+night so as put two seconds in their mine us while we get we put one side one second in there
+and we get four point four two meters per cent so ah that's how fast the ball now this is rising still that for oil
+and for two meters per second
+my rights of the ball is still going up in this case it hasn't reached it's peak and started to drop because the velocity as positive south was go ahead
+the line under that and now let's move our to sack and a terminal time to a little closer a little closer to the one second initial time so too
+asked us to do this and then i'm gonna let you guys calculate and see what you get here and now are our interval goes from one to one and a half seconds
+floor in was gonna start at one second and only go to one point five seconds
+now
+so that means we will have as a one point fine
+minus ethel one
+then we will divide that
+by one point five minus one as point five
+so grand calculate that you guys i'll do the same unless the if we agree one what wig yet
+
+got five point three five
+callum if they are just get mind around what did you got what'd you that
+five point three five five point three fat okay
+oh i got something different
+oh sorry sorry night and not yet i didn't i forgot to divide by point five
+did you say five point three five
+yes meters per second
+do we have other people who got the same thing
+that's why god i put i got a well yeah that's what i got as well
+so yeah looks good
+i saw it looks like as we get closer to one second
+the thing is speeding up a little bit
+so the instantaneous velocity might leave faster here
+the right let's go to iowa item three here your interval go ahead calculate it ah the third animal goes from one second to one point one seconds
+so again that will be at one point one minus africa won
+the time we will divide by point won because that's what one minus
+one point one minus one is
+so take a minute and calculate that
+and i will do the same
+
+
+this time i remember to divide
+a point one
+
+i her folks getting this time
+
+
+i'm i don't trust me i got but i don't fault or own nine for
+right and who didn't trust their answer did they get six point nine for as well i just got sex but i don't know aware pretty quiet fianna it adds that around to six point one i did anybody outsource that somebody second and ah the six point nine four
+i prepare for their
+wait so people are saying yes
+yeah
+that's what i got to
+i just didn't trust my answer i wanted you to confirm just getting just getting my calculator did it
+the calculator
+lessons broken i think it can do that
+beggars okay so it looks like the instantaneous pull off the air
+is going to be
+closer to
+six or seven meters per second
+i hear is that there's a couple more these to do so ah go from one sack and to one point o one seconds
+so again
+ab fab one point o one that's our app of terminal minus f have won which is ah
+alpha national
+listen a national him and divide that by at one point or one minus one or two point oh one
+now you guys do then i'm going do the same here
+i got six point three thirty six point is it from price guide good anybody else can burn that
+i prefer that i got cool or i am
+not gonna have to kick it may have been eager to insert the zeros that i need the right
+tell me what you guys got again
+six point lap
+six point two six
+and then i'm getting one for i'm just going to and on because my calculator gave it to me
+i you guys getting six point two six one four
+i right so we got one more year and then we're going to make that a guess as to what the instantaneous blast the earth
+so the last interval that they give us to compute
+like froth years from one second
+true
+ah one points
+the should be pretty accurate zero zero one
+so
+nora test test their compute not a cast go ahead and compute the instant to earlier the average velocity over that short interval one point zero zero one miles alpha for won so one one thousand them a sack him
+and then divide that by one one thousandth of a second
+
+in we'll see what you guys yet and then we'll make our nigger guess
+as to the instantaneous velocity
+i got six point two seven oh one boy
+okay i people getting a bank yeah
+we just inserting an extra zero here you guys my will tell you what i got
+okay
+six point
+gimme gimme gimme the five decimal places you got
+two seven eight when for
+dude seven eight one four is correct
+he's that's when my calculators as and i believe my calculator
+aren't you guys wow so this is that this is the other one you know you could see was sort of getting close to twenty four now what's this getting close to doesn't look like
+because that's the next question just like before wallet say why would you say the instant been instantaneous velocity it equals one is
+six point three point three million say point three again and i write well i guess i better tested and see if six point three is exactly correct
+so i will do that on my calculator
+and tell you what i get
+i right
+so we're saying six point three
+right
+lind
+i did they may a lottery find their gas
+six point three the little bit off
+six point two eight
+six point you eight years and right on the money you got it
+yeah part and as was part a you guys
+i see if i can sneak pardon be in here somewhere
+right there so it turns out
+i nodded calculate the instantaneous velocity and you will to shortly it turns out be six point two eight meters per second
+nearby sao
+while you guys just went through on those last few problems with the idea of a limit so why you are doing we were calculating the that these average velocity is oh a shorter and shorter intervals
+and as we do that we get ah we're getting a slope and that flop is getting closer and closer and closer to the slope of a tangent line rider right out in this case
+teague was one so ah the slope of a the line at teague was one turns out to be six point two eight and then of course in context of as meters per second and simple and instantaneous velocity
+waterfall okay
+ah any questions on problem one point four point six
+where are we okay with that
+that is the basic idea
+behind the limits
+is there you you take values of some quantity ah closer and closer as you approach some other fixed value and dare you see if there is a nice pattern
+that leads to a what we call the limit of the quantity were interested in
+i swear to let me read the chat here
+ah
+right that is right spencer the quizzes one one and one three i won't they won't be anything like what we did today
+ah god and
+ah okay so ah for quizzes and task for quizzes and court you can look up formulas and quite often i will on attached i'll give you the formula i want you to use as well now going forward there will be some things to memorize ah well we start learning how to take derivatives of function
+you'll need to know that process
+so yeah there there will be some memorization but on as as you can look things up there for there to help you get ready for the quiz
+ah yes as violator banks call on i gotta you guys should have received an email from our as i later and she gave you i can't remember name right off top my head
+rice was the last name can remember the first name but anyway yeah she yeah she sent out a little survey for you guys to fill out ah which will determine ah what times are best for you to meet and then once she's gone through those surveys shells that up three times a week
+for us to me for you guys to meet i won't be there and show just be a big steady group you guys will work will sit down and and learn about ah the calculator what they were doing in calculus class and she'll prepare you for exams ah she's having ah what's called a these sessions will last an hour or now
+early but as i was reading your email she said when tasser are coming up on hold a super session for two hours to prepare be buddy for the exam so ah
+oh i'll and i'll get to that question and a minute so anyway yeah look for that email ah her name as somebody rice i can remember first name anyway ah the as she's grey and you guys will be the well benefited if you go to those as i sessions you don't have to go to every one there's not a role taken it's totally
+up to you but i would really recommend going as often as you can and and don't miss those superstitions that are you ready for the exam and you can go with it or if you show up you don't have stay the whole time either so i haven't a decimal places do you want us to go ah when we show our work ah
+my rule is usually for is plenty ah
+now sometimes the book will ask the year will tell you how many guess most around to ah we're gonna learn a technique called newton's rule and the or newton's method with newton's method will probably go out alone further two to six or eight decimals it'll be usually tell
+as in the homework
+how many decimals to round two and then i'll make a point on quizzed and tas i'm telling you if there's rounding issues at how far to go out as well
+so all right
+good ah other questions out there folks
+the i will find a quiz this week on canvas are going to campus and under files you click file you'll see and it'll just be called the quid homework with one i think is what i named it and so will have fifteen of these things so it'll just be the first one ah
+yes i'll josh we will learn how to calculate instantaneous lost the with the formula that's what i did to figure out of the six point two eight number is i found the derivative of the function and then plug dow one in for all the variables and that gave me the school
+alias velocity ah
+for of at one second sell yeah all that that's actually that's not that's chapter two material so will get into that in chapter two better essentially you've got all the pieces
+so so we'll talk about limits for men will apply limits to find derivatives which will give us instantaneous rates
+k the queers is do ah i'm ah not okay so let me answer these in order ah the quizzes do you need to upload at my the start of class on monday
+so you have the weekend to work on it we don't have a class tomorrow and you guys can work on it and then just ah take pictures of your file work like a nice to meet and an ad change those two pts and upload i'm in a canvas and the a man i can see him now
+and i can great of their ah the quizzes not already on canvas body it will be after class i'm just gonna i'm gonna blow was going to show you a copy of a here and then upload it once we're done so let's do that unless you have other questions from the buck i think
+we're ready to work the quiz over
+see
+what i'm expecting off his first queers sell ah right here is quiz won every buddy
+sir al gore the instructions with you and and or than all we do a quick look at all the problems and and i think we'll be ready so at first then i include your name and the day
+the quizzes either year quizzes are either out of twenty or twenty five whatever and a nice a nice number degrade great amount of so saw the falling problems ah show all work leading to use solutions that any nor demise fashion see my wanna do your your original work your initial
+work on scratch paper and then transferred over to this page i think i left you enough room ah so that you can put your final answers and your final work here
+are you may use a calculator you're assigned homework problems ah your class pierre's your notes from class and the text book is okay ah correct and correct answers without the work to support them all and yet one point now so if you managed to find the correct answer but you can't just the
+via i you don't get four points i you have until monday august thirty first at the beginning of class to solve the problems and outlawed them to campus
+ah good luck
+work and right carefully and neatly are i'd the first problem there are three problems on this squares the first one is worth four points ah find the domain at the function app of acts which is acts minus two over the square root out eggs were administered the next plus twelve right your answer an interval form so you know
+the interval or the domain goes from this extenders acts or whatever
+so there's your first problem
+second problem
+yeah
+when you guys print this out i printed it back to back ah and so that i can say paper but you guys i wanna just print one page ad time it'll be easier to photograph and upload that way i think so ah next question is where six points as part of the function app has a domain ago
+goes from negative to to to their names acts goes is better than negative to bit smaller than positive to and a range of the function is negative three up to five so that's all the exes this little vertical line here
+ah you can read that is sad that so this is accept that and negative to is less than axe is less than two and range the interval negative three to five which means all access that negative three is less than x is less than five find the domain and the range if you can ah of
+ap of to acts
+epa the square root of acts and af and versa vax assuming be it's all right to assume that does have an inverse so or so members exists and you find the domain and range for the inverse as see your answers will be based on the domain and range bad that i gave you and
+the in the problem statement
+ah right i'll answer questions here just a second the big problem the one it's worth can i give you two functions square minus two acts and of a square in one minute fact i want you to find a domain in the range for both of those functions
+that's part a par be find app of geovax and then find you have ever backs and find those domains
+and then part see graph of acts grab this function and then grab this transformation of act mine is too plus three and there's a grid on the next page where you can put all your graphs ah similarly graph geovax or graph this square root function and
+then grabbed four times the have to acts
+both those on the grid provided for parts see as sandy i show and label at least three points i'm each of the for grass so label put down for points or you can use the grey at that a you don't have to write the coordinates if if if there are right on the grid i can see em all a mall which graph is way
+which so this one zappa bags zappa vex minus two plus three and so on and and i would like it if you use a different color for each graph so color code i'm so the weekend not so that i can tell which graph goes with which equation and you can show your work in his base below him in the great
+had is on page four here on the back i hope i hope i made a big enough so you can easily fit all for grabs on here
+so that your first queers you guys
+any questions
+ah clarification you want
+before our our what time are we so gosh i'll let you out a lot better away today so you can you can go download best thing and i've gotta go gotta go upload it ah and then you guys can i get from campus but any clarification questions you guys have let me read that shit
+that
+a
+okay yeah stop you don't have a printer and then just do your work on paper ah at and and die you know a graph paper if you have it is great for the grass and by yeah you're right it on regular paper and you can take pictures and convert those two pts say
+is it ok to do the queer the as long as you can uploaded canvas that will work ah well as the i guess you could make multiple grabs if you don't have colored pencils don't you have that you can't you find our our blue and a black pan and a red pen and and then use a pencil
+so i think if you use the different color pans and that would work too
+and for monday we will be carrying me look at monday's material year i believe will be doing yes section one point five
+on monday so read that section for the book from the block and then now we'll talk about how to do those problems
+god i reply of cake impressive
+yet not
+gosh as stay right there bears they're at their pm questions i'll go ahead and i will upload the quiz right now
+and you guys can go get it
+get up there there ago
+narrowed let me log e n
+and
+a blood this queers and then i'll make sure it's their gun charity dinner thought
+we have to do it again gay
+it's just take the second you guys it's gonna get in
+the time a couple of pass codes here
+to get there
+
+right
+
+
+i we're almost there
+
+care the go under cameras
+go into our class
+and when they go to file
+see i may have to go actually and a word and a same as to another one less the of this new computer recognizes
+nice stuff
+
+right on see
+down here
+oh it's they're wonderful
+okay
+
+oh right you guys areas tired old homework quiz line math twelve and jail d that's just my one drive
+and so it is there la mia we get outta here and then hold up to make sure it is all good
+it actually yeah okay wow all been out here and make sure everything works for matter correct way it i you guys so there it is therefore pages
+thou modern copy at and you guys are on your way
+there are good
+hey
+if you i don't have any questions say you're outta here six minutes early today so if you do have quite and hang around and ah i've got a colossal more chat here
+ah oh i brace and ask if we can do all the problems before class on monday at the know you don't need to do a i basically what i would suggest is to read the section and then hopefully a by our you're reading the section and me going it over with going over it with you are we will dive in and do some homework
+together to get you started so you just need to read at a that's usually how i do that's now ah what if we can't print it out wow if you can print out and you just gonna have to write it on a piece of paper so copy the questions down ah just like they are and queers and then leave your
+south of our room to work and you can do that
+and
+so yeah you can do it on paper ah and i think it'll be nicest probably if you do it on on printer paper by year you decide if you if you like working on line paper graph paper that's fine too
+whatever work for you so
+i rights what else i'm hang around till six o five by the way of yeah questions feel free to stick around and ask them
+the and get out a canvas here
+right very good very good
+the and then monday check one other thing in our clients
+and we're
+on all i know a lot more
+you're recording your yeah
+i'm right
+you can't do it
+really that's what i've heard here to that stinks doesn't it war with you or your screen or would go about robin but not your camera
+yeah that's that's what i found out to that i was hoping somebody would say ah here's the facts i went online and google the couple of videos and they told me how that how to select the camera but yeah nobody knew how to how to share the whole thing the camera with everybody so
+well that's good to know i'm sad news but good to know i guess
+thank you who is that anyway speaking as a you add that skyler it mandy
+oh mandy sorry i'm andy i i called you by the wrong name smell bags many
+ah roger that olives good
+an okay now and get outta here as
+our i'd you guys labour navigate we can be safe see on monday
+i get x professor yeah go ahead
+
+
+

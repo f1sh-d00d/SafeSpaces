@@ -1,5 +1,4 @@
 from vosk import Model, KaldiRecognizer
-from langchain_community.llms import Ollama
 import moviepy.editor as mp
 import speech_recognition as sr
 import librosa
@@ -59,40 +58,13 @@ class TranscriptModel(BaseModel):
             while True:
                 data = fin.readframes(2000)                     #listen to audio in chuncks to get full audio
                 if len(data) == 0:
-                    break                                     #exit loop if there is no more audio
+                    break                                       #exit loop if there is no more audio
                 if recognizer.AcceptWaveform(data):
                     result = recognizer.Result()
                     text = json.loads(result)["text"]
                     fout.write(f"{text}\n")
-
-
-
-class SummaryModel(BaseModel):
-    def __init__(self):
-        self.model = Ollama(
-                base_url = "http://localhost:11434",
-                model = "llama3.2")
-        self.notes_path = "MeetingNotes.txt"
-
-    def load(self, transcript_path):
-        '''Get the text from the transcription file. Set it as text that will be passed to llama3.2 for summarization'''
-        with open(transcript_path, 'r') as fin:
-            transcript_str = fin.read()
-
-        self.text = transcript_str
-
-    
-    def run(self):
-        prompt = f"Write a detailed summary this meeting:\n{self.text}"
-
-        notes = self.model.invoke(prompt)
-        with open(self.notes_path, "w") as fout:
-            fout.write(notes)
-
-        return self.notes_path
-
-
-
+            
+#FIXME - add summary model class using llama 
 
 def main():
     file_name = sys.argv[1]
@@ -103,14 +75,6 @@ def main():
     transcriber = TranscriptModel()
     transcriber.load(audio_path)
     transcriber.run()
-
-    summarizer = SummaryModel()
-    summarizer.load("MathMeeting.txt")
-    summarizer.run()
-
-
-
-
 
 
 
