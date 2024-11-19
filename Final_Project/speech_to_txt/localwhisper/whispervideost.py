@@ -96,25 +96,18 @@ def video_to_audio_to_text(video_file):
     Input video will extract the audio file for Whisper model to transcribe to text
     """
 
-    with NamedTemporaryFile(suffix=".temp", delete=False) as temp_file:
+    with NamedTemporaryFile(suffix=".mp4", delete=False) as temp_file:
         temp_file.write(video_file.read())
         temp_file_path = temp_file.name
 
     info = mediainfo(temp_file_path)
     input_format = info["format_name"] 
 
-    if "mp4" in input_format:
-        suffix= ".mp4"
-        audio_model = AudioExtractModel()
-        audio_model.load(temp_file_path)
-        audio_path = audio_model.run()
-        print(f"Audio saved to {audio_path}")
-    elif "mp3" in input_format:
-        suffix = ".mp3"
-    elif "wav" in input_format:
-        suffix = ".wav"
-    else:
-        raise ValueError(f"{input_format} is an unsupported audio format")
+    audio_model = AudioExtractModel()
+    audio_model.load(temp_file_path)
+    audio_path = audio_model.run()
+
+    print(f"Audio saved to {audio_path}")
   
 
     model = whisper.load_model("base")
@@ -189,7 +182,7 @@ def forstreamlit():
         <p class="upload-text">Upload your audio file here:</p>
     """, unsafe_allow_html=True)
 
-    video_file = st.file_uploader("", type=["mp4", "mp3", "wav"])
+    video_file = st.file_uploader("", type=["mp4"])
 
     if video_file is not None and video_file != st.session_state.processed_file:
         st.markdown(f"<p style='color: #d8b4fe; font-size: 1rem;'>Processing: {video_file.name}</p>", unsafe_allow_html=True)

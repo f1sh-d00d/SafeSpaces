@@ -4,7 +4,6 @@ from tempfile import NamedTemporaryFile
 from io import BytesIO
 from pydub.utils import mediainfo
 import re
-from extract_video import BaseModel, AudioExtractModel
 
 # Initialize session state variables to persist data between Streamlit reruns
 if 'transcription' not in st.session_state:
@@ -91,33 +90,28 @@ def load_whisper_model():
     """
     return whisper.load_model("base")
 
-def video_to_audio_to_text(video_file):
-    """
-    Input video will extract the audio file for Whisper model to transcribe to text
-    """
 
-    with NamedTemporaryFile(suffix=".temp", delete=False) as temp_file:
-        temp_file.write(video_file.read())
+def speech_to_text(audio_file):
+    """
+    Converts speech in the audio file to text using the Whisper model.
+    """
+    model = whisper.load_model("base")
+    input_audio = audio_file.read()
+
+    with NamedTemporaryFile(suffix=".tmp", delete=False) as temp_file:
+        temp_file.write(input_audio)
         temp_file_path = temp_file.name
 
     info = mediainfo(temp_file_path)
-    input_format = info["format_name"] 
+    audio_format = info["format_name"]
 
-    if "mp4" in input_format:
-        suffix= ".mp4"
-        audio_model = AudioExtractModel()
-        audio_model.load(temp_file_path)
-        audio_path = audio_model.run()
-        print(f"Audio saved to {audio_path}")
-    elif "mp3" in input_format:
+    if "mp3" in audio_format:
         suffix = ".mp3"
-    elif "wav" in input_format:
+    elif "wav" in audio_format:
         suffix = ".wav"
     else:
-        raise ValueError(f"{input_format} is an unsupported audio format")
-  
+        raise ValueError(f"{audio_format} is an unsupported audio format")
 
-    model = whisper.load_model("base")
     result = model.transcribe(temp_file_path, fp16=False)
     return result['text']
 
@@ -189,15 +183,15 @@ def forstreamlit():
         <p class="upload-text">Upload your audio file here:</p>
     """, unsafe_allow_html=True)
 
-    video_file = st.file_uploader("", type=["mp4", "mp3", "wav"])
+    audio_file = st.file_uploader("", type=["mp3", "wav"])
 
-    if video_file is not None and video_file != st.session_state.processed_file:
-        st.markdown(f"<p style='color: #d8b4fe; font-size: 1rem;'>Processing: {video_file.name}</p>", unsafe_allow_html=True)
+    if audio_file is not None and audio_file != st.session_state.processed_file:
+        st.markdown(f"<p style='color: #d8b4fe; font-size: 1rem;'>Processing: {audio_file.name}</p>", unsafe_allow_html=True)
         with st.spinner("Transcribing audio..."):
-            transcription = video_to_audio_to_text(video_file)
+            transcription = speech_to_text(audio_file)
             if transcription:
                 st.session_state.transcription = transcription
-                st.session_state.processed_file = video_file
+                st.session_state.processed_file = audio_file
 
     if st.session_state.transcription:
         st.markdown("<h3 style='color: #d8b4fe; font-size: 1.25rem; margin-top: 2rem;'>Transcription Result</h3>", unsafe_allow_html=True)
