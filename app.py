@@ -2,6 +2,9 @@ import streamlit as st
 from tempfile import NamedTemporaryFile
 from pydub.utils import mediainfo
 import re
+import ssl
+import certifi
+import urllib.request
 from AppModels import BaseModel, AudioExtractModel, TranscriptModel, SummaryModel, EmailModel
 
 
