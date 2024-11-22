@@ -76,6 +76,7 @@ class TranscriptModel(BaseModel):
                 if recognizer.AcceptWaveform(data):
                     result = recognizer.Result()
                     text = json.loads(result)["text"]
+                    print(f"TEXT {text}")
                     fout.write(f"{text}\n")
 
 
