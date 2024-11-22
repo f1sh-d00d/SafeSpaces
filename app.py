@@ -2,9 +2,6 @@ import streamlit as st
 from tempfile import NamedTemporaryFile
 from pydub.utils import mediainfo
 import re
-import ssl
-import certifi
-import urllib.request
 from AppModels import BaseModel, AudioExtractModel, TranscriptModel, SummaryModel, EmailModel
 
 
@@ -15,6 +12,8 @@ if 'processed_file' not in st.session_state:
     st.session_state.processed_file = None
 if 'email_recipients' not in st.session_state:
     st.session_state.email_recipients = []
+if 'transcription_path' not in st.session_state:
+    st.session_state.transcription_path = ''
 
 def setup_styles():
     """
@@ -163,8 +162,11 @@ def send_email_transcript():
     if not st.session_state.email_recipients:
         st.error("No recipients added. Please add at least one email.")
         return
-
-    st.success(f"Sent the transcript to {', '.join(st.session_state.email_recipients)}")
+    email_controller = EmailModel()
+    email_controller.load(st.session_state.email_recipients,"Meeting Notes","Here are the notes from todays meeting",st.session_state.transcription_path)
+    message_conf = email_controller.run()
+    if message_conf:
+        st.success(f"Sent the transcript to {', '.join(st.session_state.email_recipients)}")
 
 
 def main():
@@ -188,8 +190,11 @@ def main():
 
     if video_file is not None and video_file != st.session_state.processed_file:
         st.markdown(f"<p style='color: #d8b4fe; font-size: 1rem;'>Processing: {video_file.name}</p>", unsafe_allow_html=True)
+        transcription_path = None
         with st.spinner("Transcribing audio..."):
-            transcription = video_to_audio_to_text(video_file)
+            st.session_state.transcription_path = video_to_audio_to_text(video_file)
+            with open(st.session_state.transcription_path, "r") as file:
+                transcription = file.read()
             if transcription:
                 st.session_state.transcription = transcription
                 st.session_state.processed_file = video_file

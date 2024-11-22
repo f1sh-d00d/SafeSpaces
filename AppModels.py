@@ -72,7 +72,6 @@ class SummaryModel(BaseModel):
     def load(self, transcript_text):
         '''Get the text from the transcription file. Set it as text that will be passed to llama3.2 for summarization'''
         self.text = transcript_text
-
     
     def run(self):
         prompt = f"Write a detailed summary this meeting:\n{self.text}"
