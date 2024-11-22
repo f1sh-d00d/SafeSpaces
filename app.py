@@ -111,6 +111,8 @@ def video_to_audio_to_text(video_file):
     note_taker.load(transcription)
     note_file_path = note_taker.run()
 
+    return note_file_path
+
         
 def handle_add_email_button():
     """
