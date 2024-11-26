@@ -55,6 +55,7 @@ class TranscriptModel(BaseModel):
     def __init__(self):
         self.recognizer = sr.Recognizer()
         self.model_path = "vosk-model-small-en-us-0.15"
+        self.transcript_path = "MeetingText.txt"
 
     def load(self, audio_path):
         self.audio_path = audio_path
@@ -68,7 +69,7 @@ class TranscriptModel(BaseModel):
         recognizer = KaldiRecognizer(model, rate)           #create audio recognizer from model, with file's sample rate
 
         print("Starting Transcription...")
-        with open("MeetingText.txt", "w") as fout:
+        with open(self.transcript_path, "w") as fout:
             while True:
                 data = fin.readframes(2000)                     #listen to audio in chuncks to get full audio
                 if len(data) == 0:
@@ -79,6 +80,8 @@ class TranscriptModel(BaseModel):
                     print(f"TEXT {text}")
                     fout.write(f"{text}\n")
 
+        return self.transcript_path
+
 
 class SummaryModel(BaseModel):
     def __init__(self):
@@ -87,13 +90,13 @@ class SummaryModel(BaseModel):
                 model = "llama3.2")
         self.notes_path = "MeetingNotes.txt"
 
-    def load(self, transcript_text):
+    def load(self, transcript_path):
         '''Get the text from the transcription file. Set it as text that will be passed to llama3.2 for summarization'''
-        self.text = transcript_text
-
+        with open(transcript_path) as fin:
+            self.text = fin.read()
     
     def run(self):
-        prompt = f"Write a detailed summary this meeting:\n{self.text}"
+        prompt = f"Use only gender-neutral pronouns. Write a detailed summary this meeting:\n{self.text}"
 
         notes = self.model.invoke(prompt)
         with open(self.notes_path, "w") as fout:

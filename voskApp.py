@@ -104,13 +104,15 @@ def video_to_audio_to_text(video_file):
         audio_path = audio_model.run()
     else:
         audio_path = temp_file_path
-
+    
+    print("AUDIO PATH: ", audio_path)
     transcriber = TranscriptModel()
     transcriber.load(audio_path)
-    transcription = transcriber.run()
+    transcription_path = transcriber.run()
+    #print(f"TRANSCRIPTION: {transcription}")
 
     note_taker = SummaryModel()
-    note_taker.load(transcription)
+    note_taker.load(transcription_path)
     note_file_path = note_taker.run()
 
     return note_file_path
