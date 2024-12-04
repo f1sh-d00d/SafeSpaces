@@ -2,8 +2,12 @@ import streamlit as st
 from tempfile import NamedTemporaryFile
 from pydub.utils import mediainfo
 import re
-from AppModels import BaseModel, AudioExtractModel, TranscriptModel, SummaryModel, EmailModel
-
+from AppModels import BaseModel, AudioExtractModel, TranscriptModel, SummaryModel, EvernoteModel
+from evernote.api.client import EvernoteClient
+from evernote.edam.type.ttypes import Note, NoteAttributes
+import hashlib
+import time
+import oauth2
 
 # Initialize session state variables to persist data between Streamlit reruns
 if 'transcription' not in st.session_state:
@@ -14,6 +18,18 @@ if 'email_recipients' not in st.session_state:
     st.session_state.email_recipients = []
 if 'transcription_path' not in st.session_state:
     st.session_state.transcription_path = ''
+if 'evernote_token' not in st.session_state:
+    st.session_state.evernote_token = None
+
+# Initialize additional session state variables for OAuth
+if 'evernote_request_token' not in st.session_state:
+    st.session_state.evernote_request_token = None
+if 'evernote_access_token' not in st.session_state:
+    st.session_state.evernote_access_token = None
+if 'evernote_token_expiry' not in st.session_state:
+    st.session_state.evernote_token_expiry = None
+if 'evernote_oauth_verifier' not in st.session_state:
+    st.session_state.evernote_oauth_verifier = None
 
 def setup_styles():
     """
@@ -155,19 +171,85 @@ def render_recipients():
         st.write("No recipients added yet.")
 
 
-def send_email_transcript():
-    """
-    Simulates sending the transcript via email.
-    """
-    if not st.session_state.email_recipients:
-        st.error("No recipients added. Please add at least one email.")
-        return
-    email_controller = EmailModel()
-    email_controller.load(st.session_state.email_recipients,"Meeting Notes","Here are the notes from todays meeting",st.session_state.transcription_path)
-    message_conf = email_controller.run()
-    if message_conf:
-        st.success(f"Sent the transcript to {', '.join(st.session_state.email_recipients)}")
 
+
+def handle_evernote_auth():
+    """Handle Evernote OAuth authentication"""
+    if 'evernote_instance' not in st.session_state:
+        st.session_state.evernote_instance = EvernoteModel()
+
+    evernote = st.session_state.evernote_instance
+
+    if not st.session_state.get('evernote_access_token'):
+        st.markdown("<h4 style='color: #d8b4fe;'>Evernote Authentication</h4>", unsafe_allow_html=True)
+        
+        if st.button("Start OAuth Flow"):
+            # Step 1: Get temporary token
+            request_token = evernote.initialize_oauth()
+            
+            if request_token and 'oauth_token' in request_token:
+                # Store request token in session
+                st.session_state['evernote_request_token'] = request_token
+                # Step 2: Get authorization URL
+                auth_url = evernote.get_authorize_url(request_token)
+                st.markdown("### Authorization Steps:")
+                st.markdown("1. Click the link below to authorize the application")
+                st.markdown("2. After authorization, you'll be redirected back to this page")
+                st.markdown(f"[Click here to authorize with Evernote]({auth_url})")
+            else:
+                st.error("Failed to start OAuth flow. Please check your credentials.")
+
+    # Handle OAuth callback
+    params = st.query_params
+    if 'oauth_verifier' in params and 'evernote_request_token' in st.session_state:
+        oauth_verifier = params['oauth_verifier']
+        request_token = st.session_state['evernote_request_token']
+        
+        # Step 3: Get access token
+        auth_result = evernote.complete_oauth(request_token, oauth_verifier)
+        if auth_result and 'access_token' in auth_result:
+            st.session_state['evernote_access_token'] = auth_result['access_token']
+            st.session_state['evernote_token_expiry'] = auth_result['expiry']
+            st.success("Successfully authenticated with Evernote!")
+            st.experimental_rerun()
+        else:
+            st.error("Failed to complete OAuth flow. Please try again.")
+
+def save_to_evernote():
+    """Save transcription to Evernote using OAuth"""
+    evernote = EvernoteModel()
+    
+    if not st.session_state.evernote_access_token:
+        st.error("Please complete Evernote OAuth authentication first.")
+        return
+        
+    if evernote.is_token_expired(st.session_state.evernote_token_expiry):
+        # Try to refresh the token
+        refresh_result = evernote.refresh_token(st.session_state.evernote_access_token)
+        if refresh_result:
+            st.session_state.evernote_access_token = refresh_result['access_token']
+            st.session_state.evernote_token_expiry = refresh_result['expiry']
+        else:
+            st.error("Your Evernote session has expired. Please authenticate again.")
+            st.session_state.evernote_access_token = None
+            st.session_state.evernote_token_expiry = None
+            st.experimental_rerun()
+            return
+    
+    title = f"Meeting Notes - {time.strftime('%Y-%m-%d %H:%M')}"
+    if evernote.load(st.session_state.evernote_access_token, st.session_state.transcription, title):
+        note_guid = evernote.run()
+        if note_guid == 'TOKEN_EXPIRED':
+            st.error("Your Evernote session has expired. Please authenticate again.")
+            st.session_state.evernote_access_token = None
+            st.session_state.evernote_token_expiry = None
+            st.experimental_rerun()
+        elif note_guid:
+            st.success("Successfully saved to Evernote!")
+        else:
+            st.error("Failed to save to Evernote. Please try again.")
+    else:
+        st.error("Failed to initialize Evernote client. Please try authenticating again.")
 
 def main():
     """
@@ -175,7 +257,7 @@ def main():
     """
     st.set_page_config(
         page_title="ECHOSCRIPT - Voice2Notes",
-        page_icon="ðŸŽ¤",
+        page_icon="🎤",
         layout="centered"
     )
     
@@ -203,7 +285,7 @@ def main():
         st.markdown("<h3 style='color: #d8b4fe; font-size: 1.25rem; margin-top: 2rem;'>Transcription Result</h3>", unsafe_allow_html=True)
         st.text_area("", value=st.session_state.transcription, height=200)
 
-        column_one, column_two = st.columns(2)
+        column_one, column_two, column_three = st.columns(3)
         with column_one:
             st.download_button(
                 label="Download the Summary",
@@ -213,16 +295,24 @@ def main():
                 key="fullScriptDownloadButton"
             )
         
+        with column_two:
+            if st.button("Save to Evernote"):
+                save_to_evernote()
+        
         handle_add_email_button()
         render_recipients()
 
-        with column_two:
+        with column_three:
             if st.session_state.email_recipients:
                 if st.button("Email the Summary"):
                     send_email_transcript()
             else:
                 st.write("Please add recipients to email the summary.")
-        
+
+        # Add Evernote authentication section
+        st.markdown("---")
+        st.markdown("<h3 style='color: #d8b4fe; font-size: 1.25rem;'>Evernote Settings</h3>", unsafe_allow_html=True)
+        handle_evernote_auth()
 
 if __name__ == "__main__":
     main()

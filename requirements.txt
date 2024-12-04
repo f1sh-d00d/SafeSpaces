@@ -10,3 +10,9 @@ soundfile==0.12.1
 google-auth==2.35.0
 google-api-python-client==2.147.0
 google-auth-oauthlib==1.2.1
+torch==2.5.1
+numpy==1.26.4
+librosa==0.10.2.post1
+numba==0.60.0
+scipy==1.14.1
+ollama==0.4.2
