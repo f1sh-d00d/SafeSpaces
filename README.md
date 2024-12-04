@@ -157,3 +157,7 @@ streamlit run app.py
    After all desired email addresses have been added, click the "Send" button to send the email with the summarized text attached.
 
    > **Note**: If this is your first time running the app, you'll be prompted to sign in to your Gmail account. The Gmail account you sign in with will be used as the sender's email.
+---
+
+## License
+This project is licensed under the MIT License
